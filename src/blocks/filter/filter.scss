@@ -1,0 +1,143 @@
+// В этом файле должны быть стили для БЭМ-блока filter, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.filter {
+  &__close {
+    @media (min-width: 768px) {
+    }
+    @media (min-width: 1366px) {
+      display: none;
+    }
+  }
+  &__mobile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    @media (min-width: 768px) {
+    }
+    @media (min-width: 1366px) {
+      display: none;
+    }
+    span {
+      @include font(18px, #262b2e, 700);
+    }
+    &-btn {
+      position: relative;
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-content: center;
+      background-color: #f6f6f6;
+      border-radius: 4px;
+      &.active {
+        &:before {
+          position: absolute;
+          content: "";
+          top: calc(50% - 4px);
+          left: calc(50% + 4px);
+          transform: translate(-50%, -50%);
+          width: 5px;
+          height: 5px;
+          background-color: $red;
+          border-radius: 50%;
+          border: 1px solid #F6F6F6;
+          z-index: 1;
+        }
+      }
+    }
+  }
+  &__popup {
+    position: fixed;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: 0.4s;
+    inset: 0;
+    z-index: -1;
+    @media (min-width: 1366px) {
+      position: static;
+      opacity: 1;
+      z-index: initial;
+    }
+
+    &.open {
+      z-index: 9;
+      opacity: 1;
+    }
+    &-inner {
+      background-color: #f6f6f6;
+      padding: 40px 16px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 20px;
+      right: 20px;
+      z-index: -1;
+      @media (min-width: 768px) {
+        padding: 40px 24px;
+        left: 40px;
+        right: 40px;
+      }
+      @media (min-width: 1366px) {
+        position: static;
+        transform: initial;
+      }
+    }
+  }
+  &__close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 1;
+  }
+  &__title {
+    @include font(18px, #262b2e, 700);
+    @media (min-width: 768px) {
+    }
+    @media (min-width: 1366px) {
+    }
+  }
+  &__form {
+    margin-top: 28px;
+    @media (min-width: 768px) {
+      margin-top: 24px;
+    }
+    @media (min-width: 1366px) {
+    }
+    & > button {
+      padding: 12px 40px;
+      font-size: 14px;
+      font-weight: 700;
+      border-radius: 4px;
+      width: 100%;
+      @media (min-width: 768px) {
+      }
+      @media (min-width: 1366px) {
+      }
+      &:not(:first-child) {
+        margin-top: 14px;
+      }
+    }
+  }
+
+  &__accept {
+    color: #fff;
+    background: #943434;
+    max-width: none !important;
+    @media (min-width: 768px) {
+    }
+    @media (min-width: 1366px) {
+    }
+  }
+  &__reset {
+    border: 1px solid rgba(38, 43, 46, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: none !important;
+    @media (min-width: 768px) {
+    }
+    @media (min-width: 1366px) {
+    }
+  }
+}

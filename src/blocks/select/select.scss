@@ -1,0 +1,105 @@
+// В этом файле должны быть стили для БЭМ-блока select, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.select {
+  $block-name: &; // #{$block-name}__element
+  position: relative;
+
+  &:not(:first-child) {
+    margin-top: 14px;
+    @media (min-width: 768px) {
+      margin-top: 16px;
+    }
+    @media (min-width: 1366px) {
+    }
+  }
+  &.expand {
+  }
+  &-hidden {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+  &-styled {
+    cursor: pointer;
+    padding: 12px;
+    @include font(14px, #929596);
+    border-radius: 4px;
+    border: 1px solid #e6e6e6;
+    background: #fff;
+    transition: 0.3s;
+    @media (min-width: 768px) {
+      font-size: 16px;
+    }
+    @media (min-width: 1366px) {
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 12px;
+      transform: translateY(-50%);
+      width: 24px;
+      height: 24px;
+      background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.7098 14.8299L16.9498 10.5899C17.0435 10.497 17.1179 10.3864 17.1687 10.2645C17.2195 10.1427 17.2456 10.012 17.2456 9.87994C17.2456 9.74793 17.2195 9.61723 17.1687 9.49537C17.1179 9.37351 17.0435 9.26291 16.9498 9.16994C16.7624 8.98369 16.509 8.87915 16.2448 8.87915C15.9806 8.87915 15.7272 8.98369 15.5398 9.16994L11.9998 12.7099L8.45981 9.16994C8.27244 8.98369 8.01899 8.87915 7.75481 8.87915C7.49062 8.87915 7.23717 8.98369 7.04981 9.16994C6.95713 9.26338 6.8838 9.3742 6.83404 9.49604C6.78427 9.61787 6.75905 9.74834 6.75981 9.87994C6.75905 10.0115 6.78427 10.142 6.83404 10.2638C6.8838 10.3857 6.95713 10.4965 7.04981 10.5899L11.2898 14.8299C11.3828 14.9237 11.4934 14.9981 11.6152 15.0488C11.7371 15.0996 11.8678 15.1257 11.9998 15.1257C12.1318 15.1257 12.2625 15.0996 12.3844 15.0488C12.5062 14.9981 12.6168 14.9237 12.7098 14.8299Z' fill='%23262B2E'/%3E%3C/svg%3E%0A");
+      pointer-events: none;
+      transition: 200ms ease;
+    }
+    &.active {
+      border-bottom: none;
+      border-radius: 4px 4px 0 0;
+      border-color: #d58055;
+      &::after {
+        transform: translateY(-50%) rotate(-180deg);
+        background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg opacity='0.5'%3E%3Cpath d='M12.7098 9.17006L16.9498 13.4101C17.0435 13.503 17.1179 13.6136 17.1687 13.7355C17.2195 13.8573 17.2456 13.988 17.2456 14.1201C17.2456 14.2521 17.2195 14.3828 17.1687 14.5046C17.1179 14.6265 17.0435 14.7371 16.9498 14.8301C16.7624 15.0163 16.509 15.1208 16.2448 15.1208C15.9806 15.1208 15.7272 15.0163 15.5398 14.8301L11.9998 11.2901L8.45981 14.8301C8.27244 15.0163 8.01899 15.1209 7.75481 15.1209C7.49062 15.1209 7.23717 15.0163 7.04981 14.8301C6.95713 14.7366 6.8838 14.6258 6.83404 14.504C6.78427 14.3821 6.75905 14.2517 6.75981 14.1201C6.75905 13.9885 6.78427 13.858 6.83404 13.7362C6.8838 13.6143 6.95713 13.5035 7.04981 13.4101L11.2898 9.17006C11.3828 9.07633 11.4934 9.00194 11.6152 8.95117C11.7371 8.9004 11.8678 8.87426 11.9998 8.87426C12.1318 8.87426 12.2625 8.9004 12.3844 8.95117C12.5062 9.00194 12.6168 9.07633 12.7098 9.17006Z' fill='%23262B2E'/%3E%3C/g%3E%3C/svg%3E%0A");
+      }
+    }
+    &__subtitle {
+      opacity: 0.5;
+      font-size: 12px;
+    }
+    &__title {
+      display: inline-block;
+      max-width: calc(100% - 24px);
+    }
+  }
+  &-options {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    overflow: hidden;
+    width: 100%;
+    z-index: 1;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+    padding: 12px;
+    border: 1px solid #d58055;
+    border-top: none;
+    background-color: #fff;
+    border-radius: 0 0 4px 4px;
+    display: grid;
+    gap: 18px;
+    &.open {
+      opacity: 1;
+      visibility: visible;
+    }
+    li {
+      cursor: pointer;
+      margin: 0;
+      padding: 0;
+      cursor: pointer;
+      color: #262b2e;
+      transition: 200ms ease;
+
+      &:hover {
+        color: #d58055;
+      }
+    }
+  }
+}

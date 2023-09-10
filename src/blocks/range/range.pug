@@ -1,0 +1,23 @@
+//- Все примеси в этом файле должны начинаться c имени блока (range)
+
+mixin range(title, min=0, max=100, mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +range('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' range--' + modsList[i].trim();
+      }
+    }
+
+  .range(class=allMods)&attributes(attributes)
+    input(type="range", name="", min, max).range__slider
+    .range__title= title

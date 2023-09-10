@@ -1,0 +1,28 @@
+//- Все примеси в этом файле должны начинаться c имени блока (pagination)
+
+mixin pagination(num, mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +pagination('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' pagination--' + modsList[i].trim();
+      }
+    }
+
+  .pagination(class=allMods)&attributes(attributes)
+    a(href="")  В начало
+    - var n = 1;
+      ul.pagination__list
+        while n <= num
+          li
+            a(href="")= n++
+    a(href="")  В конец

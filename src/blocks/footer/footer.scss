@@ -1,0 +1,114 @@
+// В этом файле должны быть стили для БЭМ-блока footer, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.footer {
+  $block-name: &; // #{$block-name}__element
+  background-color: $red;
+  &__inner {
+    @include container;
+    @include grid;
+  }
+  &__top {
+    padding-top: 32px;
+    padding-bottom: 32px;
+    @media (min-width: 768px) {
+      padding-top: 56px;
+      padding-bottom: 100px;
+    }
+    @media (min-width: 1366px) {
+      padding-bottom: 90px;
+    }
+  }
+  &__bottom {
+    padding-top: 16px;
+    padding-bottom: 32px;
+    position: relative;
+    &::before {
+      position: absolute;
+      content: "";
+      inset: 0;
+      background-color: rgba(255, 255, 255, 0.06);
+    }
+    @media (min-width: 768px) {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+  }
+  &__logo {
+    grid-column: 1 / 3 span;
+    width: 237px;
+    height: 84px;
+    @media (min-width: 1366px) {
+      grid-column: 1 / 2 span;
+    }
+  }
+  &__menu {
+    grid-column: 1 / 4 span;
+    @media (min-width: 768px) {
+      grid-column: 1 / 3 span;
+    }
+    @media (min-width: 1366px) {
+      grid-column: 4 / 2 span;
+    }
+    &-list {
+      display: grid;
+      gap: 15px;
+      li {
+        a {
+          @include font(14px, rgba(255, 255, 255, 0.5), 400, 120%);
+          @media (min-width: 768px) {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+  &__contacts {
+    grid-column: 2 span;
+    @media (min-width: 768px) {
+      grid-row: 1;
+      grid-column: 6 / 3 span;
+    }
+    @media (min-width: 1366px) {
+      grid-column: 11 / 2 span;
+    }
+    & > a {
+      @include font(18px, $white, 400, 120%);
+    }
+  }
+  &__social {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    margin-top: 32px;
+    @media (min-width: 768px) {
+      margin-top: 0;
+    }
+    a {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.1);
+    }
+  }
+  &__policy {
+    &-conf {
+      grid-column: 1 / 2 span;
+      a {
+        @include font(14px, $white, 400, 120%);
+        opacity: 0.32;
+      }
+    }
+    &-data {
+      grid-column: 3 / 2 span;
+      a {
+        @include font(14px, $white, 400, 120%);
+        opacity: 0.32;
+      }
+    }
+  }
+}

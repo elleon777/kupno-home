@@ -1,0 +1,28 @@
+//- Все примеси в этом файле должны начинаться c имени блока (sort-by)
+
+mixin sort-by(text, mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +sort-by('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' sort-by--' + modsList[i].trim();
+      }
+    }
+
+  .sort-by(class=allMods)&attributes(attributes)
+    .sort-by__title Сортировать по
+    button
+      span Умолчанию
+    button.sort-by__increasing 
+      span Новизне
+      img(src="img/arrow_upward.svg", alt="")
+      

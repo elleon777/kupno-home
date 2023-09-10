@@ -1,0 +1,24 @@
+extends ../pug/layout.pug
+
+block meta
+  title Новости
+  meta(name='description', content='')
+
+
+block content
+  .news
+    +breadcrumbs(["Главная", "Новости"])
+    h2 Новости
+    +sort-by()
+    .news__inner
+      +new-preview("img/new1.png")
+      +new-preview("img/new2.png")
+      +new-preview("img/new2.png")
+      +new-preview("img/new3.png")
+      +new-preview("img/new1.png")
+      +new-preview("img/new3.png")
+      +new-preview("img/new2.png")
+      +new-preview("img/new3.png")
+      +new-preview("img/new1.png")
+    +link("Все новости", "", "btn")(class="news__link")
+    +pagination(7)

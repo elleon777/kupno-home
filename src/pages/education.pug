@@ -1,0 +1,81 @@
+extends ../pug/layout.pug
+
+block meta
+  title Обучающие материалы
+  meta(name='description', content='')
+
+
+block content
+  .education
+    +breadcrumbs(["Главная", "Обучающие материалы"])
+    .education__title
+      h1 Обучающие материалы
+    section.education__passport
+      .education__passport-title
+        h3 Паспорт проекта
+      .education__passport-desc Паспорт проекта - документ, в котором отражена значимая информация о выбранном проекте по улучшению – проблемы, характеристики проекта. обоснование проекта, целевые показатели, план контрольных событий.  
+      .education__passport-inner
+        a.education__passport-item.passport-item(href="")
+          .passport-item__format pdf
+          .passport-item__title Паспорт проекта 
+          .passport-item__desc
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.6078 6.31738L6.28998 17.6353M17.6078 6.31738H6.28998M17.6078 6.31738V17.6353" stroke="#943434"/>
+            </svg>
+            span Шаблон паспорта проекта
+        a.education__passport-item.passport-item(href="")
+          .passport-item__format DOC
+          .passport-item__title Как заполнить? 
+          .passport-item__desc
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.6078 6.31738L6.28998 17.6353M17.6078 6.31738H6.28998M17.6078 6.31738V17.6353" stroke="#943434"/>
+            </svg>
+            span Шаблон презентации проекта
+        a.education__passport-item.passport-item(href="")
+          .passport-item__format pdf
+          .passport-item__title Как презентовать? 
+          .passport-item__desc
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.6078 6.31738L6.28998 17.6353M17.6078 6.31738H6.28998M17.6078 6.31738V17.6353" stroke="#943434"/>
+            </svg>
+            span Шаблон презентации проекта
+        a.education__passport-item.passport-item(href="")
+          .passport-item__format pdf
+          .passport-item__title Картирование
+          .passport-item__desc
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.6078 6.31738L6.28998 17.6353M17.6078 6.31738H6.28998M17.6078 6.31738V17.6353" stroke="#943434"/>
+            </svg>
+            span Потери, картирование
+        a.education__passport-item.passport-item(href="")
+          .passport-item__format pdf
+          .passport-item__title Потери. 5S. Картирование 
+          .passport-item__desc
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.6078 6.31738L6.28998 17.6353M17.6078 6.31738H6.28998M17.6078 6.31738V17.6353" stroke="#943434"/>
+            </svg>
+            span Потери. 5S. Картирование
+        a.education__passport-item.passport-item(href="")
+          .passport-item__format pdf
+          .passport-item__title Основы Бережливых технологий в формате презентации 
+          .passport-item__desc
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.6078 6.31738L6.28998 17.6353M17.6078 6.31738H6.28998M17.6078 6.31738V17.6353" stroke="#943434"/>
+            </svg>
+            span Бережливые технологии
+    section.education__mapping
+      .education__mapping-title
+        h3 Картирование
+      .education__mapping-desc Посмотрите вебинар, посвященный картированию
+      .education__videos
+        +youtube("https://www.youtube.com/watch?v=oabjND9QW8Q")
+    section.education__lean_tech
+      .education__lean_tech-title
+        h3 Общее о Бережливых технологиях
+      .education__lean_tech-desc Основы бережливых технологий в формате лекций
+      .education__videos
+        +youtube("https://www.youtube.com/watch?v=oabjND9QW8Q")
+        +youtube("https://www.youtube.com/watch?v=oabjND9QW8Q")
+        +youtube("https://www.youtube.com/watch?v=oabjND9QW8Q")
+        +youtube("https://www.youtube.com/watch?v=oabjND9QW8Q")
+        +youtube("https://www.youtube.com/watch?v=oabjND9QW8Q")
